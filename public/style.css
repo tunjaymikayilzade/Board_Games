@@ -382,3 +382,22 @@ body[data-game="domino"] .boardcol{--bs:min(96vw,760px)}
   .dom-row{gap:4px}
   .dom-table{min-height:calc(var(--ts) * 2.8)}
 }
+
+/* ============ Phones in landscape: board takes the whole height and as much width as it can, controls go to the right ============ */
+@media (orientation:landscape) and (max-height:520px){
+  #game{--lbs:calc(100dvh - 12px);display:grid;grid-template-columns:var(--lbs) minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);column-gap:12px;align-content:start;height:100dvh;min-height:0;overflow:hidden}
+  body[data-game="nard"] #game{--lbs:min(calc((100dvh - 12px) * 1.36),78vw)}
+  body[data-game="domino"] #game{--lbs:min(72vw,calc(100vw - 250px));overflow-y:auto}
+  #game .layout,#game .boardcol{display:contents}
+  #game .boardcol,body[data-game="nard"] #game .boardcol,body[data-game="domino"] #game .boardcol{--bs:var(--lbs)}
+  #game #board{grid-column:1;grid-row:1 / -1;align-self:start;justify-self:start}
+  #game .gamebar{grid-column:2;grid-row:1;position:static;margin:0 0 4px;padding:0;background:none}
+  #game #topBar{grid-column:2;grid-row:2}
+  #game #botBar{grid-column:2;grid-row:3}
+  #game .side,body[data-game="nard"] #game .side{grid-column:2;grid-row:4;max-height:none;min-height:0;height:100%}
+}
+@media (orientation:landscape) and (max-height:520px){
+  body[data-game="domino"] .dom{--hts:36px;gap:8px}
+  body[data-game="domino"] .dom-table{min-height:calc(var(--ts) * 3)}
+  body[data-game="domino"] .dom-opp .dt.rev,body[data-game="domino"] .dom-opp .dt{--ts:calc(var(--hts) * .6)}
+}
