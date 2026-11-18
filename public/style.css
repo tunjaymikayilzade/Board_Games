@@ -276,7 +276,7 @@ button,.btn,.pt,.sq,.barh,.tray{-webkit-tap-highlight-color:transparent;touch-ac
   .die{width:clamp(28px,7.5vw,40px);height:clamp(28px,7.5vw,40px)}
   .bgdice{left:50%;right:0}
 }
-@media (max-width:380px){.clock{min-width:66px;font-size:1.05rem}.pbar .cap{display:none}}
+@media (max-width:380px){.clock{min-width:66px;font-size:1.05rem}.pbar .cap{display:none}.pbar .clock{margin-left:auto}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
 /* ============ Domino ============ */
@@ -321,3 +321,64 @@ body[data-game="domino"] .boardcol{--bs:min(96vw,760px)}
 .ctxmenu button{display:block;width:100%;text-align:left;background:transparent;border:0;color:var(--text);padding:9px 14px;border-radius:7px;cursor:pointer;font-size:.95rem;font-family:inherit}
 .ctxmenu button:hover{background:var(--danger);color:#fff}
 .live .item{cursor:context-menu}
+
+/* ============ Phones in landscape (short, wide screens) ============ */
+@media (orientation:landscape) and (max-height:520px){
+  .screen{min-height:100dvh;padding:6px calc(10px + env(safe-area-inset-right)) 6px calc(10px + env(safe-area-inset-left))}
+  .deco{display:none}
+  .btn{min-height:38px;padding:6px 12px}.btn.sm{min-height:34px;padding:4px 10px}
+  /* home + setup */
+  .hero{margin:2px 0 8px}.logo{font-size:1.8rem}.hero h1{font-size:1.5rem;margin:2px 0}.hero p{font-size:.85rem}
+  .card{padding:12px}.card.narrow{margin:2vh auto}
+  .sect{margin:12px 2px 8px;font-size:.9rem}
+  .joinbar .row{flex-wrap:nowrap;margin-top:6px}.joinbar .row input{flex:1 1 0;min-width:0}.joinbar .row .btn{flex:none}
+  .joinhead b{font-size:.95rem}.joinhead span{font-size:.8rem}
+  .gamegrid{grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+  .gcard{display:block}.gcard .art{height:64px;width:auto}.gbody{padding:8px 10px 10px}.gbody h3{font-size:1rem;margin-bottom:2px}.gbody p{font-size:.72rem;margin-bottom:4px;line-height:1.3}.tags i{font-size:.65rem;padding:2px 7px}
+  .shero{margin:0 0 8px;gap:10px}.shero h1{font-size:1.3rem}.sicon{width:44px;height:44px;font-size:1.5rem;border-radius:12px}
+  .lobby-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .live{max-height:200px}
+  .modal .box{margin:6px auto;max-height:calc(100dvh - 12px);overflow:auto;padding:14px}
+  /* game screen: board on the left (sized by the height), controls on the right */
+  .gamebar{position:sticky;top:0;z-index:20;gap:8px;margin-bottom:4px;padding:0 0 4px;background:linear-gradient(var(--bg) 80%,transparent)}
+  .gamebar .btn,.gamebar .chip{min-height:32px;padding:3px 10px}
+  .gtitle{font-size:.9rem}
+  .layout{flex-wrap:nowrap;gap:12px;align-items:flex-start;justify-content:flex-start}
+  .boardcol{flex:none;--bs:max(170px,min(calc(100dvh - 116px),56vw))}
+  body[data-game="nard"] .boardcol{--bs:max(300px,min(calc((100dvh - 116px) * 1.36),64vw))}
+  body[data-game="domino"] .boardcol{--bs:min(58vw,calc(100vw - 250px))}
+  #board{border-radius:6px;box-shadow:0 0 0 3px color-mix(in srgb,var(--sq-d) 60%,#000),0 6px 18px #000a}
+  .pbar,.pbar.turn{min-height:32px;padding:1px 2px;gap:6px}
+  .pbar .pname{font-size:.88rem;max-width:40%}
+  .avatar{width:24px;height:24px;font-size:.75rem;border-width:2px}
+  .clock{font-size:1.05rem;min-width:66px;padding:2px 8px}
+  .pbar .cap{font-size:.72rem}
+  .side,body[data-game="nard"] .side{flex:1 1 0;min-width:0;width:auto;max-height:calc(100dvh - 52px);overflow-y:auto;overscroll-behavior:contain;gap:6px;padding-right:2px;-webkit-overflow-scrolling:touch}
+  .side>.status{order:0}.side>.offer{order:1}.side>.controls{order:2}.side>.navrow{order:3}.side>.moves{order:4}.side>.voice{order:5}.side>.chat{order:6}.side>.share{order:7}.side>.viewers{order:8}
+  .side>*{flex:none;min-width:0}.side{overflow-x:hidden}.navrow .btn{min-width:0;padding:6px 4px}
+  .status{padding:8px 10px;font-size:.88rem}
+  .moves{height:84px;font-size:.85rem}
+  .chatlog{height:70px}
+  .controls .btn{flex:1 1 auto}
+  .bgb{border-width:5px;border-radius:8px}
+  .pt .num{display:none}.ck{font-size:9px}
+  .rollbtn{padding:8px 12px;font-size:.9rem}
+  .die{width:clamp(24px,5vw,34px);height:clamp(24px,5vw,34px)}
+  .promo .pcb{width:54px;height:54px;font-size:38px}
+  .toast{bottom:calc(8px + env(safe-area-inset-bottom))}
+  /* dominoes */
+  .dom{padding:6px;gap:5px;border-width:5px;border-radius:10px;--hts:26px}
+  .dom-lbl{display:none}
+  .dom-row{min-height:calc(var(--ts) * 1.1);gap:3px}
+  .dom-table{min-height:calc(var(--ts) * 2.3);padding:3px}
+  .endbtn{min-width:40px;height:30px;font-size:.8rem}
+  .dom-yard{font-size:.8rem;gap:6px}
+}
+
+/* ============ Phones in portrait: extra tweaks ============ */
+@media (max-width:760px) and (orientation:portrait){
+  .dom{--hts:32px}
+  .dom-opp .dt,.dom-opp .dt.rev{--ts:calc(var(--hts) * .55)}
+  .dom-row{gap:4px}
+  .dom-table{min-height:calc(var(--ts) * 2.8)}
+}
