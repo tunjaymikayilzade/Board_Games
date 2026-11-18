@@ -1,0 +1,4 @@
+Sound effects (all CC0 / public domain):
+- Kenney "Casino Audio" (dice, chips, cards): https://opengameart.org/content/54-casino-sound-effects-cards-dice-chips
+- "100 CC0 metal and wood SFX" (wood hits/slams): https://opengameart.org/content/100-cc0-metal-and-wood-sfx
+Samples were converted to mono WAV, trimmed and normalised.
